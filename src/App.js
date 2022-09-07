@@ -1,27 +1,37 @@
-import marked from "marked";
-
-import logo from "./logo.svg";
+import React, { Component } from "react";
 import "./App.css";
 
-function App() {
+import marked from "marked";
+import logo from "./logo.svg";
+
+import { sampleText } from "../sampleText";
+
+class App extends Component {
+  state = {
+    text: sampleText,
+  };
+
+  handleChange = (event) => {
+    const text = event.target.value;
+    this.setState({ sampleText });
+  };
+}
+
+function render() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      <div className="row">
+        <div className="col-sm-6">
+          <textarea className="form-control" rows="35" />
+          // we will write our text here
+        </div>
+        <div className="col-sm-6">
+          <textarea className="form-control" rows="35" />
+          // we will render our text here
+        </div>
+      </div>
     </div>
   );
 }
 
-export default App;
+export default render;
