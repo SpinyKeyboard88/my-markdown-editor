@@ -24,7 +24,7 @@ class App extends Component {
   };
 
   componentDidUpdate() {
-    const { text } = this.setState;
+    const { text } = this.state;
     localStorage.setItem("text", text);
   }
 
