@@ -3,9 +3,10 @@ import "./App.css";
 import "./DarkApp.css";
 
 import marked from "marked";
+
 import logo from "./logo.svg";
 
-import { sampleText } from "../sampleText";
+import { sampleText } from "./sampleText";
 
 class App extends Component {
   state = {
@@ -14,7 +15,7 @@ class App extends Component {
 
   handleChange = (event) => {
     const text = event.target.value;
-    this.setState({ sampleText });
+    this.setState({ text });
   };
 
   renderText = (text) => {
@@ -57,4 +58,4 @@ function render() {
   );
 }
 
-export default render;
+export default App;
