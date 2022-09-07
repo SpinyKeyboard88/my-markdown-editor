@@ -36,26 +36,25 @@ class App extends Component {
       this.setState({ text: sampleText });
     }
   }
-}
 
-function render() {
-  return (
-    <div className="container">
-      <div className="row">
-        <div className="col-sm-6">
-          <textarea
-            onChange={this.handleChange}
-            value={this.state.text}
-            className="form-control"
-            rows="35"
-          />
-        </div>
-        <div className="col-sm-6">
-          <div dangerouslySetInnerHTML={this.renderText(this.state.text)} />
+  render() {
+    return (
+      <div className="container">
+        <div className="row">
+          <div className="col-sm-6">
+            <textarea
+              onChange={this.handleChange}
+              value={this.state.text}
+              className="form-control"
+              rows="35"
+            />
+          </div>
+          <div className="col-sm-6">
+            <div dangerouslySetInnerHTML={this.renderText(this.state.text)} />
+          </div>
         </div>
       </div>
-    </div>
-  );
+    );
+  }
 }
-
 export default App;
