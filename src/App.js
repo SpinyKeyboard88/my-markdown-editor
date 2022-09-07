@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
+import "./DarkApp.css";
 
 import marked from "marked";
 import logo from "./logo.svg";
@@ -15,6 +16,25 @@ class App extends Component {
     const text = event.target.value;
     this.setState({ sampleText });
   };
+
+  renderText = (text) => {
+    const __html = marked(text, { sanitize: true });
+    return __html;
+  };
+
+  componentDidUpdate() {
+    const { text } = this.setState;
+    localStorage.setItem("text", text);
+  }
+
+  componentDidMount() {
+    const text = localStorage.getItem("text");
+    if (text) {
+      this.setState({ text });
+    } else {
+      this.setState({ text: sampleText });
+    }
+  }
 }
 
 function render() {
@@ -22,12 +42,15 @@ function render() {
     <div className="container">
       <div className="row">
         <div className="col-sm-6">
-          <textarea className="form-control" rows="35" />
-          // we will write our text here
+          <textarea
+            onChange={this.handleChange}
+            value={this.state.text}
+            className="form-control"
+            rows="35"
+          />
         </div>
         <div className="col-sm-6">
-          <textarea className="form-control" rows="35" />
-          // we will render our text here
+          <div dangerouslySetInnerHTML={this.renderText(this.state.text)} />
         </div>
       </div>
     </div>
