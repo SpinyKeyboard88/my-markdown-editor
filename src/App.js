@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "./App.css";
 import "./DarkApp.css";
 
-import marked from "marked";
+import { marked } from "marked";
 
 import logo from "./logo.svg";
 
