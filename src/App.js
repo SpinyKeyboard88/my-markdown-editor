@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
-import "./DarkApp.css";
+//import "./DarkApp.css";
 
 import { marked } from "marked";
 
@@ -20,7 +20,7 @@ class App extends Component {
 
   renderText = (text) => {
     const __html = marked(text, { sanitize: true });
-    return __html;
+    return { __html };
   };
 
   componentDidUpdate() {
